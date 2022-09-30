@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai'
+import logo from '../assets/logo.png';
 
 import { Cart } from './';
 import { useStateContext} from '../context/StateContext';
@@ -16,6 +17,8 @@ const NavBar = () => {
           M Store
         </Link>
       </p>
+
+      <img src={logo} alt="logo" />
 
       <button 
         type='button' 
