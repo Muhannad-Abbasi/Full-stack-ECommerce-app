@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
 import { AiOutlineMinus, AiOutlinePlus, AiOutlineLeft, AiOutlineShopping } from 'react-icons/ai';
-import { TiDeleteOutline } from 'react-icons/ti';
+import { IoTrashOutline } from 'react-icons/io5';
 import toast from 'react-hot-toast';
 
 import { useStateContext } from '../context/StateContext';
@@ -100,7 +100,7 @@ const Cart = () => {
                     className="remove-item"
                     onClick={() => onRemove(item)}
                   >
-                    <TiDeleteOutline />
+                    <IoTrashOutline />
                   </button>
                 </div>
               </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'
 import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai'
 import logo from '../assets/logo.png';
@@ -14,11 +15,13 @@ const NavBar = () => {
         <Link
           href='/'
         >
-          M Store
+          <Image
+            src={logo} alt="logo"
+            width={50}
+            height={50} 
+          />
         </Link>
       </p>
-
-      <img src={logo} alt="logo" />
 
       <button 
         type='button' 

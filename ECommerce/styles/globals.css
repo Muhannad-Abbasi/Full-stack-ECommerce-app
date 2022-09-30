@@ -60,7 +60,7 @@ span.text-red {
 .logo{
   color: gray;
   font-size: 18px;
-
+  cursor: pointer;
 }
 .cart-icon{
   font-size: 25px;
@@ -132,7 +132,7 @@ span.text-red {
 .hero-banner-container button{
   border-radius: 15px;
   padding: 10px 16px;
-  background-color: #f02d34;
+  background-color: #8f4b1c;
   color: white;
   border: none;
   margin-top: 40px;
@@ -195,7 +195,7 @@ span.text-red {
 }
 .footer-banner-container{
   padding: 100px 40px;
-  background-color: #f02d34;
+  background-color: #8f4b1c;
   border-radius: 15px;
   position: relative;
   height: 400px;
@@ -212,7 +212,7 @@ span.text-red {
   border-radius: 15px;
   padding: 10px 16px;
   background-color: white;
-  color: red;
+  color: black;
   border: none;
   margin-top: 40px;
   font-size: 18px;
@@ -229,8 +229,6 @@ span.text-red {
 }
 .footer-banner-image{
   position: absolute;
-  /* top: -35%;
-  left: 8%; */
   top: -25%;
   left: 25%;
 }
@@ -299,7 +297,7 @@ span.text-red {
 }
 .cart-num-items{
   margin-left: 10px;
-  color: #f02d34;
+  color: #8f4b1c;
 }
 .empty-cart{
   margin:40px;
@@ -313,15 +311,15 @@ span.text-red {
   cursor: pointer;
 }
 .product-container{
-  margin-top: 15px;
+  margin-top: 10px;
   overflow: auto;
   max-height: 70vh;
   padding: 20px 10px;
 }
 .product{
   display: flex;
-  gap: 30px;
-  padding: 20px;
+  justify-content: space-between;
+  padding: 10px;
 }
 .product .cart-product-image{
   width:180px ;
@@ -379,7 +377,7 @@ span.text-red {
   margin-top: 10px;
   margin-top: 40px;
   text-transform: uppercase;
-  background-color: #f02d34;
+  background-color: #8f4b1c;
   color: #fff;
   cursor: pointer;
   transform: scale(1, 1);
@@ -405,7 +403,7 @@ span.text-red {
   transition: .3s ease-in-out;
 }
 .product-detail-image:hover{
-  background-color: #f02d34;
+  background-color: #d4d4d4;
 }
 .small-images-container{
   display: flex;
@@ -420,10 +418,10 @@ span.text-red {
   cursor: pointer;
 }
 .selected-image{
-  background-color:#f02d34;
+  background-color:#8f4b1c;
 }
 .reviews{
-  color: #f02d34;
+  color: rgb(243, 243, 9);
   margin-top: 10px;
   display: flex;
   gap: 5px;
@@ -443,7 +441,7 @@ span.text-red {
   font-weight: 700 ;
   font-size: 26px;
   margin-top: 30px;
-  color:#f02d34;
+  color:#8f4b1c;
 }
 .price .old-price, .product-price .old-price, .price .old-price{
   color: gray;
@@ -461,12 +459,12 @@ span.text-red {
 }
 .buttons .add-to-cart{
   padding: 10px 20px;
-  border: 1px solid #f02d34 ;
+  border: 1px solid #8f4b1c ;
   margin-top: 40px;
   font-size: 18px;
   font-weight: 500;
   background-color: white;
-  color: #f02d34;
+  color: #8f4b1c;
   cursor: pointer;
   width: 200px;
   transform: scale(1, 1);
@@ -478,7 +476,7 @@ span.text-red {
 .buttons .buy-now{
   width: 200px;
   padding: 10px 20px;
-  background-color: #f02d34;
+  background-color: #8f4b1c;
   color: white;
   border: none;
   margin-top: 40px;
@@ -501,11 +499,11 @@ padding: 6px;
   cursor: pointer;
 }
 .quantity-desc .minus{
-  border-right: 1px solid gray;
   color: #f02d34;
 }
 .quantity-desc .num{
   border-right: 1px solid gray;
+  border-left: 1px solid gray;
   font-size: 20px;
 }
 .quantity-desc .plus{
