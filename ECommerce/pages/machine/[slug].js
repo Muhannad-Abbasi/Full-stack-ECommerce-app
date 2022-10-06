@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 import { client, urlFor } from '../../lib/client';
-import Brand from '../../components/Brand';
+import Machine from '../../components/Machine';
 import { useStateContext } from '../../context/StateContext';
 
-const BrandDetails = ({ brand, brands }) => {
-  const { image, name, details, price } = brand;
+const MachineDetails = ({ machine, machines }) => {
+  const { image, name, details, price } = machine;
   const [index, setIndex] = useState(0);
   const { incQty, decQty, qty, onAdd, setShowCart } = useStateContext();
 
   const handleBuyNow = () => {
-    onAdd(brand, qty);
+    onAdd(machine, qty);
     setShowCart(true);
   }
 
@@ -77,7 +77,7 @@ const BrandDetails = ({ brand, brands }) => {
             <button
               type='button'
               className='add-to-cart'
-              onClick={() => onAdd(brand, qty)}
+              onClick={() => onAdd(machine, qty)}
             >
               Add to Cart
             </button>
@@ -96,8 +96,8 @@ const BrandDetails = ({ brand, brands }) => {
         <h2>You may also like</h2>
         <div className='marquee'>
           <div className='maylike-products-container track'>
-            {brands.map((item) => (
-              <Brand key={item._id} brand={item} />
+            {machines.map((item) => (
+              <Machine key={item._id} machine={item} />
             ))}
           </div>
         </div>
@@ -107,17 +107,17 @@ const BrandDetails = ({ brand, brands }) => {
 }
 
 export const getStaticPaths = async () => {
-  const query = `*[_type == "brand"] {
+  const query = `*[_type == "machine"] {
     slug {
       current
     }
   }`
 
-  const brands = await client.fetch(query);
+  const machines = await client.fetch(query);
 
-  const paths = brands.map((brand) => ({
+  const paths = machines.map((machine) => ({
     params: {
-      slug: brand.slug.current
+      slug: machine.slug.current
     }
   }));
 
@@ -128,15 +128,15 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params: { slug } }) => {
-  const query = `*[_type == "brand" && slug.current == '${slug}'][0]`;
-  const brandsQuery = '*[_type == "brand"]'
+  const query = `*[_type == "machine" && slug.current == '${slug}'][0]`;
+  const machinesQuery = '*[_type == "machine"]'
 
-  const brand = await client.fetch(query);
-  const brands = await client.fetch(brandsQuery);
+  const machine = await client.fetch(query);
+  const machines = await client.fetch(machinesQuery);
 
   return {
-    props: { brand, brands }
+    props: { machine, machines }
   }
 }
 
-export default BrandDetails;
+export default MachineDetails;

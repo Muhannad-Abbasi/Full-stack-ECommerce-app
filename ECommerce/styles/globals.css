@@ -39,6 +39,12 @@ a {
   width: 100%;
   overflow-x: hidden;
 }
+.machine{
+  position: relative;
+  height: 335px;
+  width: 100%;
+  overflow-x: hidden;
+}
 .track {
   position: absolute;
   white-space: nowrap;
@@ -184,6 +190,13 @@ span.text-red {
   text-align: center;
   margin: 40px 0px;
   color: #324d67;
+}
+.machine-heading h2{
+  text-align: center;
+  margin: 20px 0px 40px 0px;
+  color: #324d67;
+  font-size: 40px;
+  font-weight: 800;
 }
 .products-heading h2{
   font-size: 40px;
