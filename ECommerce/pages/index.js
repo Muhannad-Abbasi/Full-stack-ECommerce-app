@@ -1,26 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Product, FooterBanner, HeroBanner } from '../components';
 import Brand from '../components/Brand';
 import Machine from '../components/Machine';
 import { client } from '../lib/client';
 
 const Home = ({ products, bannerData, brandsData, machineData }) => {
+  const [prodNumb, setProdNumb] = useState(5);
+  const [brandNumb, setBrandNumb] = useState(5);
+
+  const loadMoreProdHandler = () => {
+    setProdNumb(prevProdNumb => prevProdNumb + 3)
+  };
+
+  const loadMoreBrandHandler = () => {
+    setBrandNumb(prevBrandNumb => prevBrandNumb + 3)
+  };
+
   return (
     <>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
 
-      <div className='products-heading'>
-        <h2>Best selling products</h2>
+      <div>
+        <div className='products-heading'>
+          <h2>Best selling products</h2>
+        </div>
+        <div className='products-container'>
+          {products?.slice(0, prodNumb).map((product) => <Product key={product._id} product={product} /> )}
+        </div>
+        <div className='products-container'>
+          <button
+            type='button'
+            onClick={loadMoreProdHandler}
+            className='landing-button'
+          >
+            Load More
+          </button>
+        </div>
       </div>
 
-      <div className='products-container'>
-        {products?.map((product) => <Product key={product._id} product={product} /> )}
-      </div>
-
-      <div className='products-heading'>
-        <h2>Best brands</h2>
-      </div>
-
+      <div>
+        <div className='products-heading'>
+          <h2>Best brands</h2>
+        </div>
         <div className='machine'>
           <div className='maylike-products-container track'>
             {brandsData.map((item) => (
@@ -28,14 +49,25 @@ const Home = ({ products, bannerData, brandsData, machineData }) => {
             ))}
           </div>
         </div>
+      </div>
 
+      <div>
         <div className='machine-heading'>
           <h2>Best coffee makers</h2>
         </div>
-
         <div className='products-container'>
-          {machineData?.map((machine) => <Machine key={machine._id} machine={machine} /> )}
+          {machineData?.slice(0, brandNumb).map((machine) => <Machine key={machine._id} machine={machine} /> )}
         </div>
+        <div className='products-container'>
+          <button
+            type='button'
+            onClick={loadMoreBrandHandler}
+            className='landing-button'
+          >
+            Load More
+          </button>
+        </div>
+      </div>
 
       <FooterBanner footerBanner={bannerData && bannerData[0]} />
     </>
