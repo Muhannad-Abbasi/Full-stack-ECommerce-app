@@ -1,20 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Product, FooterBanner, HeroBanner } from '../components';
 import Brand from '../components/Brand';
 import Machine from '../components/Machine';
 import { client } from '../lib/client';
+import { useStateContext } from '../context/StateContext';
 
 const Home = ({ products, bannerData, brandsData, machineData }) => {
-  const [prodNumb, setProdNumb] = useState(5);
-  const [brandNumb, setBrandNumb] = useState(5);
-
-  const loadMoreProdHandler = () => {
-    setProdNumb(prevProdNumb => prevProdNumb + 3)
-  };
-
-  const loadMoreBrandHandler = () => {
-    setBrandNumb(prevBrandNumb => prevBrandNumb + 3)
-  };
+  const { prodNumb, brandNumb, loadMoreBrandHandler, loadMoreProdHandler } = useStateContext();
 
   return (
     <>

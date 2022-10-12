@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 const Context = createContext();
@@ -9,6 +9,16 @@ export const StateContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
+  const [prodNumb, setProdNumb] = useState(2);
+  const [brandNumb, setBrandNumb] = useState(2);
+
+  const loadMoreProdHandler = () => {
+    setProdNumb(prevProdNumb => prevProdNumb + 3)
+  };
+
+  const loadMoreBrandHandler = () => {
+    setBrandNumb(prevBrandNumb => prevBrandNumb + 3)
+  };
 
   let foundProduct;
   let index;
@@ -80,7 +90,8 @@ export const StateContext = ({ children }) => {
     <Context.Provider
       value={{
         showCart,
-        setShowCart,
+        prodNumb,
+        brandNumb,
         cartItems,
         totalPrice,
         totalQuantities,
@@ -92,7 +103,10 @@ export const StateContext = ({ children }) => {
         onRemove,
         setCartItems,
         setTotalPrice,
-        setTotalQuantities 
+        setTotalQuantities,
+        setShowCart,
+        loadMoreBrandHandler,
+        loadMoreProdHandler
       }}
     >
       {children}
