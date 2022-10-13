@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image'
 import Link from 'next/link';
-import { AiOutlineShopping } from 'react-icons/ai'
+import { RiShoppingCart2Line } from 'react-icons/ri'
 import logo from '../assets/logo.png';
 
 import { Cart } from './';
@@ -9,6 +9,7 @@ import { useStateContext} from '../context/StateContext';
 
 const NavBar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
+  
   return (
     <div className='navbar-container'>
       <p className='logo'>
@@ -28,8 +29,8 @@ const NavBar = () => {
         className='cart-icon'
         onClick={() => setShowCart(true)}
       >
-        <AiOutlineShopping />
-        <span className='cart-item-qty'>{totalQuantities}</span>
+        <RiShoppingCart2Line />
+        {totalQuantities === 0 ? '' : <span className='cart-item-qty'>{totalQuantities}</span>}
       </button>
 
       {showCart && <Cart />}

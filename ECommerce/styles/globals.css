@@ -82,8 +82,9 @@ span.text-red {
 }
 .cart-item-qty{
   position: absolute;
-  right: -8px;
-  font-size: 12px;
+  right: -6px;
+  top: 8px;
+  font-size: 10.5px;
   color: #eee;
   background-color: #f02d34;
   width: 18px;
@@ -91,6 +92,7 @@ span.text-red {
   border-radius: 50%;
   text-align: center;
   font-weight: 600;
+  border: 1px white solid;
 }
 .products-container{
   display: flex;
