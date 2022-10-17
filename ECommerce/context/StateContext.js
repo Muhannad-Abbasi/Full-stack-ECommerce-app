@@ -9,8 +9,8 @@ export const StateContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
-  const [prodNumb, setProdNumb] = useState(2);
-  const [brandNumb, setBrandNumb] = useState(2);
+  const [prodNumb, setProdNumb] = useState(3);
+  const [brandNumb, setBrandNumb] = useState(3);
 
   const loadMoreProdHandler = () => {
     setProdNumb(prevProdNumb => prevProdNumb + 3)
